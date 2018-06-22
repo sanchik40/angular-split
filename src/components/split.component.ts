@@ -9,7 +9,7 @@ import { IPoint } from './../interface/IPoint';
 import { SplitAreaDirective } from './splitArea.directive';
 
 /**
- * angular-split
+ * angular-split-a
  * 
  * Areas size are set in percentage of the split container.
  * Gutters size are set in pixels.
