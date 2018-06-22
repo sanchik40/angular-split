@@ -561,7 +561,7 @@ export class SplitComponent implements AfterViewInit, OnDestroy {
         let newSizePixelA = this.dragStartValues.sizePixelA - offsetPixel;
         let newSizePixelB = this.dragStartValues.sizePixelB + offsetPixel;
         let minAreaA = areaA.comp.minSize * 100;
-		let minAreaB = areaB.comp.minSize * 100;
+		    let minAreaB = areaB.comp.minSize * 100;
         
         if(newSizePixelA < this.gutterSize && newSizePixelB < this.gutterSize) {
             // WTF.. get out of here!
@@ -569,13 +569,13 @@ export class SplitComponent implements AfterViewInit, OnDestroy {
         }
         // check for minSize
         else if (newSizePixelA < minAreaA) {
-			newSizePixelB -= newSizePixelA - minAreaA;
-			newSizePixelA = minAreaA;
-		}
-		else if (newSizePixelB < minAreaB) {
-			newSizePixelA += newSizePixelB - minAreaB;
-			newSizePixelB = minAreaB;
-		}
+          newSizePixelB -= newSizePixelA - minAreaA;
+          newSizePixelA = minAreaA;
+        }
+        else if (newSizePixelB < minAreaB) {
+          newSizePixelA += newSizePixelB - minAreaB;
+          newSizePixelB = minAreaB;
+        }
         // end check for minsize
 
         else if(newSizePixelA < this.gutterSize) {

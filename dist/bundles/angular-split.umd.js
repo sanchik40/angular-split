@@ -648,9 +648,19 @@ var SplitComponent = (function () {
         }
         var /** @type {?} */ newSizePixelA = this.dragStartValues.sizePixelA - offsetPixel;
         var /** @type {?} */ newSizePixelB = this.dragStartValues.sizePixelB + offsetPixel;
+        var /** @type {?} */ minAreaA = areaA.comp.minSize * 100;
+        var /** @type {?} */ minAreaB = areaB.comp.minSize * 100;
         if (newSizePixelA < this.gutterSize && newSizePixelB < this.gutterSize) {
             // WTF.. get out of here!
             return;
+        }
+        else if (newSizePixelA < minAreaA) {
+            newSizePixelB -= newSizePixelA - minAreaA;
+            newSizePixelA = minAreaA;
+        }
+        else if (newSizePixelB < minAreaB) {
+            newSizePixelA += newSizePixelB - minAreaB;
+            newSizePixelB = minAreaB;
         }
         else if (newSizePixelA < this.gutterSize) {
             newSizePixelB += newSizePixelA;

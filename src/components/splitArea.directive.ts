@@ -41,7 +41,7 @@ export class SplitAreaDirective implements OnInit, OnDestroy {
 
     @Input() set minSize(v: number) {
         v = Number(v);
-        this._minSize = (!isNaN(v) && v > 0 && v < 100) ? v/100 : 0;
+        this._minSize = (!isNaN(v) && v > 0 /*&& v < 100*/) ? v/100 : 0;
 
         this.split.updateArea(this, false, true);
     }
